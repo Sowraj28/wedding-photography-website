@@ -1,6 +1,5 @@
-import { useState } from 'react'
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
@@ -11,31 +10,25 @@ import PortfolioPage from "./pages/PortfolioPage.jsx";
 import BlogPage from "./pages/BlogPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
-
+import PortfolioDetail from "./pages/PortfolioDetail.jsx";
+import BlogDetail from "./pages/BlogDetail.jsx";
 
 function App() {
-
   const isComponentValid = (Component) =>
     typeof Component === "function" ||
     (Component && typeof Component === "object");
 
   return (
     <Router>
-     
       <div className="flex flex-col min-h-screen">
-       
         {isComponentValid(Header) ? (
           <Header />
         ) : (
-          <div style={{ color: "red" }}>
-            Header Component Error
-          </div>
+          <div style={{ color: "red" }}>Header Component Error</div>
         )}
-       
+
         <main className="flex-grow">
-       
           <Routes>
-        
             <Route
               path="/"
               element={
@@ -46,7 +39,7 @@ function App() {
                 )
               }
             />
-         
+
             <Route
               path="/about"
               element={
@@ -77,6 +70,19 @@ function App() {
                 )
               }
             />
+
+            {/* Portfolio Detail Route */}
+            <Route
+              path="/portfolio/:id"
+              element={
+                isComponentValid(PortfolioDetail) ? (
+                  <PortfolioDetail />
+                ) : (
+                  <div>PortfolioDetail Error</div>
+                )
+              }
+            />
+
             <Route
               path="/blog"
               element={
@@ -87,6 +93,19 @@ function App() {
                 )
               }
             />
+
+            {/* Blog Detail Route */}
+            <Route
+              path="/blog/:id"
+              element={
+                isComponentValid(BlogDetail) ? (
+                  <BlogDetail />
+                ) : (
+                  <div>BlogDetail Error</div>
+                )
+              }
+            />
+
             <Route
               path="/contact"
               element={
@@ -97,7 +116,7 @@ function App() {
                 )
               }
             />
-         
+
             <Route
               path="*"
               element={
@@ -108,11 +127,9 @@ function App() {
                 )
               }
             />
-          
           </Routes>
-          
         </main>
-   
+
         {isComponentValid(Footer) ? (
           <Footer />
         ) : (
@@ -120,9 +137,7 @@ function App() {
             Footer Component Error
           </div>
         )}
-       
       </div>
-      
     </Router>
   );
 }

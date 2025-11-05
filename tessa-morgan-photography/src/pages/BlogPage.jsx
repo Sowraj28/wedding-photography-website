@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import AboutHeroImage from "../assets/hero2.jpg";
 import BlogImg1 from "../assets/img27.jpg";
@@ -11,6 +12,7 @@ import BlogImg6 from "../assets/img32.jpg";
 function BlogPage() {
   const blogPosts = [
     {
+      id: "gift-ideas",
       image: BlogImg1,
       title: "GIFT IDEAS FOR THE BRIDE & GROOM ON THE WEDDING DAY",
       date: "28 July 2023",
@@ -19,6 +21,7 @@ function BlogPage() {
         "Thoughtful and personalized gift ideas that will make the wedding day even more special for the couple.",
     },
     {
+      id: "stylish-decor",
       image: BlogImg2,
       title: "STYLISH DECOR THEMES FOR MODERN WEDDINGS",
       date: "2 August 2023",
@@ -27,6 +30,7 @@ function BlogPage() {
         "Explore creative and elegant decor trends to transform your wedding venue into a dreamy atmosphere.",
     },
     {
+      id: "perfect-moment",
       image: BlogImg3,
       title: "HOW TO CAPTURE THE PERFECT WEDDING MOMENT",
       date: "15 August 2023",
@@ -35,6 +39,7 @@ function BlogPage() {
         "Tips from professional photographers on how to capture timeless and emotional wedding shots.",
     },
     {
+      id: "bridal-fashion",
       image: BlogImg4,
       title: "ELEGANT BRIDAL FASHION TRENDS OF THE YEAR",
       date: "5 September 2023",
@@ -43,6 +48,7 @@ function BlogPage() {
         "From minimalistic gowns to floral details, discover the latest fashion inspiration for brides.",
     },
     {
+      id: "destination-weddings",
       image: BlogImg5,
       title: "TOP DESTINATION WEDDINGS IN INDIA",
       date: "20 September 2023",
@@ -51,6 +57,7 @@ function BlogPage() {
         "A curated list of the most romantic and breathtaking destinations for a perfect wedding getaway.",
     },
     {
+      id: "creative-invitations",
       image: BlogImg6,
       title: "CREATIVE INVITATION IDEAS TO WOW YOUR GUESTS",
       date: "10 October 2023",
@@ -88,8 +95,9 @@ function BlogPage() {
           {/* Blog Grid - Two per row, with proper spacing */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {blogPosts.map((post, index) => (
-              <div
+              <Link
                 key={index}
+                to={`/blog/${post.id}`}
                 className="bg-white flex flex-col rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
               >
                 {/* Blog Image */}
@@ -102,8 +110,8 @@ function BlogPage() {
                 </div>
 
                 {/* Blog Content */}
-                <div className="p-15 flex flex-col justify-between ">
-                  <h3 className="text-xl p-4 font-serif text-gray-800 mb-4 hover:text-gray-900 transition-colors cursor-pointer">
+                <div className="p-15 flex flex-col justify-between">
+                  <h3 className="text-xl p-4 font-serif text-gray-800 mb-4 hover:text-gray-900 transition-colors">
                     {post.title}
                   </h3>
 
@@ -117,7 +125,7 @@ function BlogPage() {
                     {post.excerpt}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
