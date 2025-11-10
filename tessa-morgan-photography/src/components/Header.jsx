@@ -4,7 +4,7 @@ import Logo from "../assets/logo.png";
 
 function Header() {
   const linkClass =
-    "hover:text-white transition duration-300 cursor-pointer text-black";
+    "hover:text-slate-400 transition duration-300 cursor-pointer text-black";
   const logoTextClass =
     "text-xs tracking-widest uppercase text-stone-100 mt-0.5";
 

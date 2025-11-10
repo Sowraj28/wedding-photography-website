@@ -273,18 +273,18 @@ function PortfolioDetailPage() {
             </p>
           </div>
 
-          {/* Gallery Grid - 2 small images on left, 1 large on right */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-            {/* Left Column - Two stacked images */}
-            <div className="grid grid-rows-2 gap-6">
-              <div className="overflow-hidden h-[250px]">
+          {/* Gallery Grid - Asymmetric Layout */}
+          <div className="mb-16 space-y-6">
+            {/* First Row - Small left, Large right */}
+            <div className="grid grid-cols-2 gap-6">
+              <div className="overflow-hidden h-[280px]">
                 <img
                   src={portfolio.galleryImages[0].img}
                   alt={`${portfolio.names} 1`}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <div className="overflow-hidden h-[250px]">
+              <div className="overflow-hidden h-[380px]">
                 <img
                   src={portfolio.galleryImages[1].img}
                   alt={`${portfolio.names} 2`}
@@ -293,11 +293,29 @@ function PortfolioDetailPage() {
               </div>
             </div>
 
-            {/* Right Column - Large image */}
-            <div className="overflow-hidden h-[506px]">
+            {/* Second Row - Large left, Small right */}
+            <div className="grid grid-cols-2 gap-6">
+              <div className="overflow-hidden h-[380px]">
+                <img
+                  src={portfolio.galleryImages[2].img}
+                  alt={`${portfolio.names} 3`}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="overflow-hidden h-[280px]">
+                <img
+                  src={portfolio.galleryImages[0].img}
+                  alt={`${portfolio.names} 4`}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </div>
+
+            {/* Bottom Row - Full Width Image */}
+            <div className="overflow-hidden h-[400px]">
               <img
-                src={portfolio.galleryImages[2].img}
-                alt={`${portfolio.names} 3`}
+                src={portfolio.galleryImages[1].img}
+                alt={`${portfolio.names} 5`}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
@@ -328,16 +346,6 @@ function PortfolioDetailPage() {
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Back to Portfolio Button */}
-          <div className="text-center mt-16">
-            <button
-              onClick={() => navigate("/portfolio")}
-              className="border border-gray-300 text-gray-600 px-8 py-3 text-sm tracking-widest hover:bg-gray-50 transition-colors"
-            >
-              BACK TO PORTFOLIO
-            </button>
           </div>
         </div>
       </div>

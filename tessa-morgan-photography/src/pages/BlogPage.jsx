@@ -92,36 +92,41 @@ function BlogPage() {
             </p>
           </div>
 
-          {/* Blog Grid - Two per row, with proper spacing */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Blog Grid - Two per row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {blogPosts.map((post, index) => (
               <Link
                 key={index}
                 to={`/blog/${post.id}`}
-                className="bg-white flex flex-col rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+                className="bg-white overflow-hidden hover:shadow-xl transition-all duration-300 group"
               >
                 {/* Blog Image */}
-                <div className="h-72 overflow-hidden">
+                <div className="h-64 overflow-hidden">
                   <img
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
 
                 {/* Blog Content */}
-                <div className="p-15 flex flex-col justify-between">
-                  <h3 className="text-xl p-4 font-serif text-gray-800 mb-4 hover:text-gray-900 transition-colors">
+                <div className="pt-6 pb-8 px-0">
+                  <h3 className="text-xl font-serif text-gray-800 mb-4 leading-snug tracking-wide">
                     {post.title}
                   </h3>
 
-                  <div className="flex items-center p-4 gap-4 mb-3 text-sm text-gray-500">
-                    <span>{post.date}</span>
-                    <span>•</span>
-                    <span>{post.category}</span>
+                  <div className="flex flex-col gap-1 mb-4 text-sm">
+                    <p className="text-gray-600">
+                      <span className="italic text-gray-800">Date:</span>{" "}
+                      <span className="italic text-rose-400">{post.date}</span>
+                    </p>
+                    <p className="text-gray-600">
+                      <span className="italic text-gray-800">Category:</span>{" "}
+                      <span className="italic">{post.category}</span>
+                    </p>
                   </div>
 
-                  <p className="text-gray-600 text-sm leading-relaxed p-4">
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     {post.excerpt}
                   </p>
                 </div>
